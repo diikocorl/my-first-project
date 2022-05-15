@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <style>
+        h3{
+            text-align: center;
+            color: #ffffff;
+        }
+        label{
+            color: #ffffff;
+            font-size: 25px;
+            font-family: Courier;
+            margin: 5px 0 5px 30px;
+            display: inline;
+            align-content: left;
+            float: left;
+        }
+        .enter{
+            width: 350px;
+            background-color: none;
+            font-family: cursive;
+            border: 1px solid gray;
+            border-radius: 8px;
+            margin: 5px 0 10px 30px;
+            padding: 5px;
+            display: block;
+        }
+        .enter:hover{
+            background-color: rgb(250, 240, 250);
+        }
+        .container{
+            margin-top: 100px;
+            display: center;
+            text-align: center;
+            justify-content: center;
+            font-family: 'Times New Roman';
+        }
+        body{
+            background-image: url("http://thuthuatphanmem.vn/uploads/2018/06/18/hinh-nen-may-tinh-3d-cuc-dep_032704752.jpg");
+            
+        }
+        .login{
+            width: 450px;
+            border: 1px solid rgb(255, 255, 255);
+            border-radius: 8px;
+            margin: 20px auto;
+            padding: 16px;
+        }
+
+        .input-error{
+            display: block;
+            font-size: inherit;
+            font-family: cursive;
+            margin: 5px 0 10px 30px;
+            color: red;
+            text-align: center;
+            padding-top: 2px;
+            text-align: left;
+        }
+        button{
+            font-size: 20px;
+            font-family: monospace;
+            margin: 30px 30px 30px 0;
+            width: 200px;
+            border: 2px solid rgb(119, 118, 118);
+            border-radius: 30px;
+            background-color: rgb(0, 250, 75);
+            padding: 3px;
+            text-align: center;
+        }
+        button:hover{
+            background-color: rgb(75, 196, 149);
+        }
+        .check{
+            font-size: 8;
+            float: left;
+            display: inline;
+        }
+        .regis{
+            display: block;
+            font-size: 13px;
+            font-family: cursive;
+            color: #ffffff;
+        }
+
+    </style>
+    <title>Login</title>
+</head>
+<body>
+<div class="container">
+    <div class="login_form">
+        <form class='login' action="http://127.0.0.1:10000" method="POST" onsubmit="return validInput()">
+            <h3><b>LOGIN FORM</b></h3>
+            <div class="input">
+                <label>Username</label>
+                <input id='username' class='enter' type="text" name="Username" placeholder="Enter username">
+            </div>
+            <div class="input">
+                <label>Password</label>
+                <input id='pwd' class='enter' type="password" name="Password" placeholder="Enter password">
+            </div>
+            <label id='error-message' class="input-error"></label>
+            <button>Login</button>
+            <div class='regis'>
+                <span>Not registered? <a style='text-decoration:none' href='/create-account'>Create an account</a></span> 
+            </div>
+            <div class='regis'>
+                <span>Forgot your password? <a style='text-decoration:none' href='/reset-password'>Click here to reset</a></span> 
+            </div>
+            
+        </form>
+    </div>
+</div>
+</body>
+<script>
+    function validInput(){
+        let usernameField = document.getElementById('username');
+        let passwordField = document.getElementById('pwd');
+        let errorField = document.getElementById('error-message');
+        
+        let username = usernameField.value;
+        let password = passwordField.value;
+        
+        if (username === "admin" && password === '123456'){
+            return true;
+        }
+        else{
+            errorField.innerHTML = 'Invalid username or password';
+            return false;
+        }
+    }
+</script>
+</html>
